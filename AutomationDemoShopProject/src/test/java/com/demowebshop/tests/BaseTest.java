@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -32,8 +33,7 @@ public class BaseTest {
 	@Parameters({"browserName"})
 	public void initializeDriver(@Optional String browserName) throws IOException {
 		prop = TestProperties.getProperties(); //to get data of TestProperties class
-		if ( browserName == null || browserName.isEmpty()) { //if null give whatever in Config.properties = Chrome 
-			System.out.println("hello"); 
+		if ( browserName == null || browserName.isEmpty()) { //if null give whatever in Config.properties = Chrome 		
 			browserName  = prop.getProperty("browser");//whatever browser is given in the xml file will be given to "browser"
 		}
 		
@@ -53,6 +53,9 @@ public class BaseTest {
 
 	public void getDriver(String browser) {
 		if (browser.equalsIgnoreCase("chrome")) {//EqualsIgnoreCase means case does not matter either upper or lower case chrome it is ok
+			
+			//ChromeOptions opt= new ChromeOptions();
+			//opt.addArguments("--headless=new");// to make execution headless
 			driver = new ChromeDriver();//to open chrome 
 
 		} else if (browser.equalsIgnoreCase("edge")) { // to open msedge

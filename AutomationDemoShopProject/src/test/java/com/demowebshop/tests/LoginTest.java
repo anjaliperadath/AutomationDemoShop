@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest { //extended parent class BaseTest
 		 
 		 String expectedEmail = homePage.getLoggedEmail(); // to get logged email ie the email that is logged in
 		 
-		 Assert.assertEquals(actualEmail,expectedEmail , "Email did not match"); // to check if actualEmail=expectedEmail
+		 Assert.assertEquals(actualEmail, expectedEmail , "Email did not match"); // to check if actualEmail=expectedEmail
 		    
 	}
 }

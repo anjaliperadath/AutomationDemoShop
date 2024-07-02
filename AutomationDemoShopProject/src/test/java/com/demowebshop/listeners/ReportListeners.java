@@ -11,7 +11,6 @@ import com.aventstack.extentreports.Status;
 import com.demowebshop.Utils.PageActions;
 import com.demowebshop.Utils.ReportNG;
 
-
 public class ReportListeners implements ITestListener {
 	
 	ExtentReports extent= ReportNG.generateReport(); // to call the method generateReport() here, to get report
@@ -34,10 +33,13 @@ public class ReportListeners implements ITestListener {
 		extentTest.get().log(Status.FAIL, result.getThrowable());// to fail and throw exception	
 	//	extentTest.get().addScreenCaptureFromBase64String(PageActions.getScreenshot());// to get screenshot from BASE64
 		extentTest.get().log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromBase64String(PageActions.getScreenshot()).build());
-        //build the action so that at log level the screenshot will be generated as thumbnail
-				
+        //build the action so that at log level the screenshot will be generated as thumbnail				
 	}
-
+	
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		extentTest.get().log(Status.SKIP, "Test Skipped");// to skip a test if it fails .
+	}
 
 	@Override
 	public void onFinish(ITestContext context) {
