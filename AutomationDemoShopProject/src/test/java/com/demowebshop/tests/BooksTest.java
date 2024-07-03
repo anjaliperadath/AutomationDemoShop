@@ -19,9 +19,9 @@ public class BooksTest extends BaseTest {
 		loginPage.navigateToRegisteration(); // to navigate to register button and to click on the register button
 		registerPage.createUser(firstName,lastName, email, password, password);//to create user filling these fields with values from faker
 
-		booksPage.clickOnBooks();// to click on "Books" category
+		booksPage.navigateToBooks();// to click on "Books" category
 		booksPage.checkoutDropdown(prop.getProperty("sortby"),prop.getProperty("display"),prop.getProperty("viewAs"));//to select from Dropdown list
-		booksPage.clickOnFilter();////to click on under25
+		booksPage.navigateOnFilter();//to click on under25
 		booksPage.addTocartBook();
 		String actualRate=booksPage.originalRateOfBook();
 		String expectedRate=booksPage.finalRateofBook();

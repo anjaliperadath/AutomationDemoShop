@@ -7,17 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.demowebshop.Utils.PageActions;
 
-public class BooksPage extends PageActions {
-	
+public class BooksPage extends PageActions{
 WebDriver driver;
 	
 	public BooksPage(WebDriver driver) {
 		super(driver);
 		this.driver= driver;
 		PageFactory.initElements(driver, this);
-}
+		
+	}
 	
-
 	@FindBy(xpath= "//ul[@class='top-menu'][1]/li/a" ) // to grab the "Books" category
 	private WebElement Books;
 	
@@ -46,7 +45,7 @@ WebDriver driver;
 	private WebElement finalBookRate;
 	
 		
-	public void clickOnBooks() {
+	public void navigateToBooks() {
 		clickElement(Books);// to click on "Books" category
 	}
 	
@@ -57,7 +56,7 @@ WebDriver driver;
 	}
 	
 	
-	public void clickOnFilter() {
+	public void navigateOnFilter() {
 		clickElement( filterUnder25);//to click on under25
 	}
 	
@@ -76,3 +75,5 @@ WebDriver driver;
 		return finalRate;
 	}			
 }
+
+
